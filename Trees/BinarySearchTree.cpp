@@ -29,6 +29,9 @@ public:
     void Preorder(BST *);
     void Postorder(BST *);
     int Search(BST *, int);
+    int countNodes(BST *);
+    int countIntNodes(BST *);
+    int countExtNodes(BST *);
 };
 BST *BST::Insert(BST *root, int val)
 {
@@ -86,6 +89,28 @@ BST *BST::minValueNode(BST *root)
         curr = curr->left;
     return curr;
 }
+int BST::countNodes(BST *root) {
+    if(root==NULL)
+        return 0;
+    else
+        return(countNodes(root->left)+countNodes(root->right)+1);
+}
+int BST::countIntNodes(BST *root) {
+    if(root==NULL)
+        return 0;
+    else if(root->left==NULL && root->right==NULL)
+        return 0;
+    else
+        return(countIntNodes(root->left)+countIntNodes(root->right)+1);
+}
+int BST::countExtNodes(BST *root) {
+    if(root==NULL)
+        return 0;
+    else if(root->left==NULL && root->right==NULL)
+        return 1;
+    else
+        return(countExtNodes(root->left)+countExtNodes(root->right));
+}
 BST *BST::Delete(BST *root, int val)
 {
     if (root == NULL)
@@ -130,7 +155,10 @@ int main()
         cout << "Enter 4 to Display in INORDER Format.\n";
         cout << "Enter 5 to Display in PREORDER Format.\n";
         cout << "Enter 6 to Display in POSTORDER Format.\n";
-        cout << "Enter Your Choice.\n\n";
+        cout << "Enter 7 to count number of nodes.\n";
+        cout << "Enter 8 to count number of internal nodes.\n";
+        cout << "Enter 9 to count number of external nodes.\n";
+        cout << "Enter Your Choice = ";
 
         cin >> ch;
         switch (ch)
@@ -170,14 +198,26 @@ int main()
         case 4:
             cout << "INORDER FORMAT:\n";
             tree1.Inorder(root1);
+            cout<<endl;
             break;
         case 5:
             cout << "PREORDER FORMAT:\n";
             tree1.Preorder(root1);
+            cout<<endl;
             break;
         case 6:
             cout << "POSTORDER FORMAT:\n";
             tree1.Postorder(root1);
+            cout<<endl;
+            break;
+        case 7:
+            cout << "No. of Nodes = "<<tree1.countNodes(root1)<<endl;
+            break;
+        case 8:
+            cout << "No. of Internal Nodes = "<<tree1.countIntNodes(root1)<<endl;
+            break;
+        case 9:
+            cout << "No. of External Nodes = "<<tree1.countExtNodes(root1)<<endl;
             break;
         default:
             cout << "WRONG INPUT!\n";
