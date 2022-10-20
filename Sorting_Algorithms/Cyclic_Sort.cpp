@@ -1,5 +1,4 @@
-#include<iostream>
-#include<stdio.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 // Whenever elements of the array are from 1 to N
