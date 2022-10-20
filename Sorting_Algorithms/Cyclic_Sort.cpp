@@ -1,4 +1,5 @@
 #include<iostream>
+#include<stdio.h>
 using namespace std;
 
 // Whenever elements of the array are from 1 to N
@@ -10,12 +11,13 @@ void swap(int arr[], int i, int j) {
 
 void cyclicSort(int arr[], int len) {
     int i = 0;
-        while (i < len) {
-            if (arr[i] != i + 1) {
-                swap(arr, i, arr[i]-1);
-            } else
-                i++;
-        }
+    while (i < len) {
+        if (arr[i] != i + 1) {
+            swap(arr, i, arr[i]-1);
+        } 
+        else
+            i++;
+    }
 }
 
 void print(int arr[], int len) {

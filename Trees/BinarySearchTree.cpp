@@ -32,6 +32,7 @@ public:
     int countNodes(BST *);
     int countIntNodes(BST *);
     int countExtNodes(BST *);
+    int height(BST *);
 };
 BST *BST::Insert(BST *root, int val)
 {
@@ -111,6 +112,12 @@ int BST::countExtNodes(BST *root) {
     else
         return(countExtNodes(root->left)+countExtNodes(root->right));
 }
+int BST::height(BST *root) {
+    if(root==NULL)
+        return 0;
+    else
+        return(max(height(root->left),height(root->right))+1);
+}
 BST *BST::Delete(BST *root, int val)
 {
     if (root == NULL)
@@ -158,6 +165,7 @@ int main()
         cout << "Enter 7 to count number of nodes.\n";
         cout << "Enter 8 to count number of internal nodes.\n";
         cout << "Enter 9 to count number of external nodes.\n";
+        cout << "Enter 10 to calculate height of tree.\n";
         cout << "Enter Your Choice = ";
 
         cin >> ch;
@@ -218,6 +226,9 @@ int main()
             break;
         case 9:
             cout << "No. of External Nodes = "<<tree1.countExtNodes(root1)<<endl;
+            break;
+        case 10:
+            cout << "Height of tree = "<<tree1.height(root1)<<endl;
             break;
         default:
             cout << "WRONG INPUT!\n";
