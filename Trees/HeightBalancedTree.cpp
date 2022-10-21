@@ -11,17 +11,17 @@ class AVL {
 public:
     //default constructor
     AVL() {
-        this->data=0;
-        this->height=0;
-        this->lchild=NULL;
-        this->rchild=NULL;
+        data=0;
+        height=0;
+        lchild=NULL;
+        rchild=NULL;
     }
     //parameterised constructor
     AVL(int value) {
-        this->data=value;
-        this->height=1;
-        this->lchild=NULL;
-        this->rchild=NULL;
+        data=value;
+        height=1;
+        lchild=NULL;
+        rchild=NULL;
     }
 
     //Member functions
@@ -44,7 +44,7 @@ int AVL::getHeight(AVL *r) {
 }
 
 int AVL::getBalance(AVL *r){
-    return(getHeight(r->lchild)-getHeight(r->rchild));
+    return(getHeight(r->lchild)-getHeight(r->rchild)+1);
 }
 
 AVL *AVL::leftRotate(AVL *x) {
