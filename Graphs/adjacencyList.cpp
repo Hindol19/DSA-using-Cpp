@@ -1,13 +1,11 @@
-#include <iostream>
-#include <stdio.h>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
     int v,e;
     cout<<"Enter the number of vertices and edges = ";
     cin>>v>>e;
-    vector<int> adjList[v];
+     vector<list<int>> adjList(v);
     cout<<"Enter the edge ="<<endl;
     for(int i=0;i<e;i++) {
         int a,b;
@@ -20,6 +18,6 @@ int main() {
         for(auto x:adjList[i]) {
             printf(" -> %c",x+'A');
         }
-        cout<<endl;
+        cout<<" -> null "<<endl;
     }
 }

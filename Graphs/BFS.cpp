@@ -26,12 +26,12 @@ void Graph::display() {
         for(auto x:adjList[i]) {
             printf(" -> %c",x+'A');
         }
-        cout<<endl;
+        cout<<" -> null "<<endl;
     }
 }
 
 void Graph::bfs(int v) { 
-    int visited[V]={};
+    vector<int> visited(V,0);
     queue<int> Q;
     visited[v]=1;
     Q.push(v);
